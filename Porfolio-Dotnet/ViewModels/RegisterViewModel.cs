@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 
-namespace Porfolio.ViewModels
+namespace Portfolio.ViewModels
 {
     public class RegisterViewModel
     {

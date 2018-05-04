@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Portfolio;
 
-namespace Porfolio
+namespace Portfolio
 {
     public class Program
     {
