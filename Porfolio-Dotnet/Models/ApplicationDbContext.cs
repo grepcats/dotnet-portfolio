@@ -9,7 +9,7 @@ namespace Portfolio.Models
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        //public DbSet<Product> Products { get; set; }
+        public DbSet<BlogPost> BlogPosts { get; set; }
 
 
         public ApplicationDbContext(DbContextOptions options) : base(options)
