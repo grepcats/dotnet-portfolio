@@ -7,6 +7,11 @@
 
 <h2>Portfolio Blog</h2>
 <hr />
-<div class="options">
+@if (User.IsInRole("Admin"))
+{
+<div>
     @Html.ActionLink("Create new post", "Create")
 </div>
+
+}
+    
