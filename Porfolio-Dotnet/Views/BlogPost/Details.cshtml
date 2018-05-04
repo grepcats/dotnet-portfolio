@@ -5,21 +5,21 @@
 
 
 
-@model Portfolio.Models.Comment
+@model Portfolio.Models.BlogPost
 
 
-<h4>@Model.BlogPost.Title</h4>
-<p>@Model.BlogPost.BlogPostId</p>
-<p>@Model.BlogPost.PostDate</p>
-<p>@Model.BlogPost.TextBody</p>
+<h4>@Model.Title</h4>
+<p>@Model.BlogPostId</p>
+<p>@Model.PostDate</p>
+<p>@Model.TextBody</p>
 
-@using (Html.BeginForm("Create", "Comment", FormMethod.Post))
+@*@using (Html.BeginForm("Create", "Comment", FormMethod.Post))
 {
     @Html.HiddenFor(model => model.BlogPostId)
     @Html.LabelFor(model => model.TextBody)
     @Html.TextBoxFor(model => model.TextBody)
     <input type="submit" value="Create" class="btn btn-default" />
-}
+}*@
 
 @*@foreach (Answer answer in ViewBag.Answers)
 {

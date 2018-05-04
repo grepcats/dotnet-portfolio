@@ -17,19 +17,15 @@
             $('.blog-posts').click(function () {
                 $.ajax({
                     type: 'GET',
+                    datatype: 'html',
                     url: '@Url.Action("ListPosts", "BlogPost")',
                     success: function (result) {
-                        var stringResult = "";
-                        for (var i = 0; i < result.length; i++) {
-                            stringResult += '<div class="a-post" id="' + result[i].blogPostId + '"><h3 class="details">' + result[i].title + '</h3><p> ' + result[i].textBody + '</p></div>';
-
-                        }
-                        $('#posts').html(stringResult);
+                        $('#posts').html(result);
                     }
                 });
             });
             @*$('.a-post').click(function () {
-                var selectedId = $('#id').val();
+                var selectedId = $((this).attr('id'));
                 console.log(selectedId);
                 $.ajax({
                     type: 'GET',

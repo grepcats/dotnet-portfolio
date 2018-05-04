@@ -44,11 +44,11 @@ namespace Portfolio.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult ListPosts()
-        {
-            var model = _db.BlogPosts.ToList();
-            return Json(model);
-        }
+        //public IActionResult ListPosts()
+        //{
+        //    var model = _db.BlogPosts.ToList();
+        //    return Json(model);
+        //}
 
         //public IActionResult DisplayComments()
         //{
@@ -68,5 +68,12 @@ namespace Portfolio.Controllers
 
             return View(thisBlogPost);
         }
+
+        public IActionResult ListPosts()
+        {
+            List<BlogPost> model = _db.BlogPosts.ToList();
+            return View(model);
+        }
+        
     }
 }
