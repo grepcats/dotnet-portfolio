@@ -21,13 +21,36 @@
                     success: function (result) {
                         var stringResult = "";
                         for (var i = 0; i < result.length; i++) {
-                            stringResult += '<div class="a-post"><h3>' + result[i].title + '</h3><p> ' + result[i].textBody + '</p></div>';
+                            stringResult += '<div class="a-post" id="' + result[i].blogPostId + '"><h3 class="details">' + result[i].title + '</h3><p> ' + result[i].textBody + '</p></div>';
 
                         }
                         $('#posts').html(stringResult);
                     }
                 });
             });
+            @*$('.details').click(function () {
+
+                $.ajax({
+                    type: 'GET',
+                    url: '@Url.Action("Details", "BlogPost", new { id = PostId })',
+                    success: function (result) {
+                        $('')
+
+                    }
+
+                });
+            });
+            $('.display-comments').click(function () {
+                    var selectedId = 
+                $.ajax({
+                    type: 'GET',
+                    dataType: 'html',
+                    url: '@Url.Action("CommentForm")',
+                    success: function (result) {
+                        $('#comments').html(result);
+                    }
+                });
+            });*@
         });
         </script>
     </environment>

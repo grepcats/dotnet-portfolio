@@ -49,5 +49,15 @@ namespace Portfolio.Controllers
             var model = _db.BlogPosts.ToList();
             return Json(model);
         }
+
+        public IActionResult DisplayComments()
+        {
+            return View();
+        }
+
+        public IActionResult CommentForm()
+        {
+            return View();
+        }
     }
 }
