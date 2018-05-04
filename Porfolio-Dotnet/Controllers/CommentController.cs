@@ -16,12 +16,12 @@ namespace Portfolio.Controllers
 {
     public class CommentController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ApplicationDbContext _db;
         private readonly UserManager<ApplicationUser> _userManager;
 
         public CommentController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
-            _context = context;
+            _db = context;
             _userManager = userManager;
         }
 
@@ -30,7 +30,20 @@ namespace Portfolio.Controllers
             return View();
         }
 
-      
+   
+        [HttpPost]
+        public async Task<IActionResult> Create(Comment comment)
+        {
+            comment.PostDate = DateTime.Now;
+            comment.UserId = (this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
+
+            _db.Comments.Add(comment);
+            await _db.SaveChangesAsync();
+            return RedirectToAction("Details", "BlogPost", new { id = comment.BlogPostId });
+            //return RedirectToAction("Index", "Home");
+        }
+
+
 
         //[HttpPost]
         //public async Task<IActionResult> Create(Comment comment)
@@ -41,7 +54,7 @@ namespace Portfolio.Controllers
         //    _context.Comments.Add(comment);
         //    await _context.SaveChangesAsync();
         //    return RedirectToAction("Details", "BlogPost", new { id = comment.BlogPostId });
-           
+
         //}
     }
 }

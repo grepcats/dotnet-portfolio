@@ -18,5 +18,6 @@ namespace Portfolio.Models
         public DateTime PostDate { get; set; }
         public int BlogPostId { get; set; }
         public virtual BlogPost BlogPost { get; set; }
+        public virtual ApplicationUser User { get; set; }
     }
 }

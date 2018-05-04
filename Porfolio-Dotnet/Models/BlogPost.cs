@@ -16,6 +16,7 @@ namespace Portfolio.Models
         public string Author { get; set; }
         public string TextBody { get; set; }
         public DateTime PostDate { get; set; }
-        public List<Comment> Comments { get; set; }
+        public virtual List<Comment> Comments { get; set; }
+        public virtual ApplicationUser User { get; set; }
     }
 }

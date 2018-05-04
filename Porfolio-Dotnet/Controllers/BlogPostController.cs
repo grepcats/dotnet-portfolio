@@ -62,7 +62,14 @@ namespace Portfolio.Controllers
 
         public IActionResult Details(int id)
         {
-            var thisBlogPost = _db.BlogPosts.FirstOrDefault(BlogPosts => BlogPosts.BlogPostId == id);
+            //var thisBlogPost = _db.BlogPosts.FirstOrDefault(BlogPosts => BlogPosts.BlogPostId == id);
+
+            var thisBlogPost = _db.BlogPosts.Include(blogPosts => blogPosts.User).SingleOrDefault(q => q.BlogPostId == id);
+            Comment comment = new Comment();
+            comment.BlogPost = thisBlogPost;
+            comment.BlogPostId = id;
+            ViewBag.Comments = _db.Comments.Where(a => a.BlogPostId == id);
+            return View(comment);
             //thisBlogPost.Comments = thisBlogPost.Comments.Where(Comments => Comments.BlogPostId == id).ToList();
 
 
