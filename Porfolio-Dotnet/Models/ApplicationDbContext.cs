@@ -11,6 +11,10 @@ namespace Portfolio.Models
     {
         public DbSet<BlogPost> BlogPosts { get; set; }
 
+        public ApplicationDbContext()
+        {
+
+        }
 
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {
