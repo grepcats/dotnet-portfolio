@@ -19,12 +19,11 @@
                     type: 'GET',
                     url: '@Url.Action("ListPosts", "BlogPost")',
                     success: function (result) {
-                        var stringResult = '<div>';
+                        var stringResult = "";
                         for (var i = 0; i < result.length; i++) {
-                            stringResult += '<li>' + result[i].title + ', ' + result[i].textBody + '</li>';
+                            stringResult += '<div class="a-post"><h3>' + result[i].title + '</h3><p> ' + result[i].textBody + '</p></div>';
 
                         }
-                        stringResult += '</div>';
                         $('#posts').html(stringResult);
                     }
                 });
