@@ -50,14 +50,23 @@ namespace Portfolio.Controllers
             return Json(model);
         }
 
-        public IActionResult DisplayComments()
-        {
-            return View();
-        }
+        //public IActionResult DisplayComments()
+        //{
+        //    return View();
+        //}
 
-        public IActionResult CommentForm()
+        //public IActionResult CommentForm()
+        //{
+        //    return View();
+        //}
+
+        public IActionResult Details(int id)
         {
-            return View();
+            var thisBlogPost = _db.BlogPosts.FirstOrDefault(BlogPosts => BlogPosts.BlogPostId == id);
+            //thisBlogPost.Comments = thisBlogPost.Comments.Where(Comments => Comments.BlogPostId == id).ToList();
+
+
+            return View(thisBlogPost);
         }
     }
 }

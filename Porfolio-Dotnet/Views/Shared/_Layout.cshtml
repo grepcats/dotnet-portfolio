@@ -28,24 +28,27 @@
                     }
                 });
             });
-            @*$('.details').click(function () {
-
-                $.ajax({
-                    type: 'GET',
-                    url: '@Url.Action("Details", "BlogPost", new { id = PostId })',
-                    success: function (result) {
-                        $('')
-
-                    }
-
-                });
-            });
-            $('.display-comments').click(function () {
-                    var selectedId = 
+            @*$('.a-post').click(function () {
+                var selectedId = $('#id').val();
+                console.log(selectedId);
                 $.ajax({
                     type: 'GET',
                     dataType: 'html',
-                    url: '@Url.Action("CommentForm")',
+                    data: { 'id': selectedId},
+                    url: '@Url.Action("Details")',
+                    success: function (result) {
+                        $('#detail' + selectedId).html(result);
+                    }
+                });
+            });*@
+            @*$('.display-comments').click(function () {
+                var selectedId = $('#id');
+                console.log(selectedId);
+                $.ajax({
+                    type: 'GET',
+                    dataType: 'html',
+                    data: { 'id': selectedId},
+                    url: '@Url.Action("Details")',
                     success: function (result) {
                         $('#comments').html(result);
                     }
