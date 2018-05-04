@@ -7,15 +7,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Portfolio.Models
 {
-    [Table("BlogPosts")]
-    public class BlogPost
+    [Table("Comments")]
+    public class Comment
     {
         [Key]
-        public int BlogPostId { get; set; }
-        public string Title { get; set; }
+        public int CommentId { get; set; }
         public string Author { get; set; }
         public string TextBody { get; set; }
         public DateTime PostDate { get; set; }
-        public List<Comment> Comments { get; set; }
+        public virtual BlogPost BlogPost { get; set; }
     }
 }
