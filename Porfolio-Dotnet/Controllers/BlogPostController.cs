@@ -68,12 +68,13 @@ namespace Portfolio.Controllers
             Comment comment = new Comment();
             comment.BlogPost = thisBlogPost;
             comment.BlogPostId = id;
+            //thisBlogPost.Comments = thisBlogPost.Comments.Where(Comments => Comments.BlogPostId == id).ToList();
             ViewBag.Comments = _db.Comments.Where(a => a.BlogPostId == id);
             return View(comment);
-            //thisBlogPost.Comments = thisBlogPost.Comments.Where(Comments => Comments.BlogPostId == id).ToList();
+            
 
 
-            return View(thisBlogPost);
+            //return View(thisBlogPost);
         }
 
         public IActionResult ListPosts()

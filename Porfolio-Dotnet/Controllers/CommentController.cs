@@ -34,8 +34,12 @@ namespace Portfolio.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(Comment comment)
         {
+            //TODO- add user to comment.User
+            
             comment.PostDate = DateTime.Now;
             comment.UserId = (this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
+            //var user = _db.Comments.Include(comments => comments.User).SingleOrDefault(q => q.UserId == comment.UserId);
+            //comment.User = user;
 
             _db.Comments.Add(comment);
             await _db.SaveChangesAsync();
