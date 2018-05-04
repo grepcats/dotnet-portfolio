@@ -15,6 +15,7 @@ namespace Portfolio.Models
         public string Author { get; set; }
         public string TextBody { get; set; }
         public DateTime PostDate { get; set; }
+        public int BlogPostId { get; set; }
         public virtual BlogPost BlogPost { get; set; }
     }
 }
