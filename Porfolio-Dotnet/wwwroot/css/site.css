@@ -22,6 +22,10 @@ textarea {
     padding: 15px;
 }
 
+.logout-button {
+    margin-top: 15px;
+}
+
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
     /* Hide captions */
