@@ -20,9 +20,9 @@
     @Html.LabelFor(user => user.ConfirmPassword)
     @Html.PasswordFor(user => user.ConfirmPassword)
 
-    @*@Html.LabelFor(user => user.UserRoleId)
+    @Html.LabelFor(user => user.UserRoleId)
 
-    <select name="role" id="role">
+    @*<select name="role" id="role">
         @foreach (var role in ViewBag.Roles)
         {
             <option value="@role.Id">@role.Name</option>
