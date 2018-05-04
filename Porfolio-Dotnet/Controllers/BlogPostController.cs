@@ -43,5 +43,11 @@ namespace Portfolio.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public IActionResult ListPosts()
+        {
+            var model = _db.BlogPosts.ToList();
+            return Json(model);
+        }
     }
 }
