@@ -38,8 +38,8 @@ namespace Portfolio.Controllers
             
             comment.PostDate = DateTime.Now;
             comment.UserId = (this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
-            //var user = _db.Comments.Include(comments => comments.User).SingleOrDefault(q => q.UserId == comment.UserId);
-            //comment.User = user;
+            var user = _db.Comments.Select(comments => comments.User).SingleOrDefault(q => q.Id == comment.UserId);
+            comment.User = user;
 
             _db.Comments.Add(comment);
             await _db.SaveChangesAsync();
@@ -47,18 +47,5 @@ namespace Portfolio.Controllers
             //return RedirectToAction("Index", "Home");
         }
 
-
-
-        //[HttpPost]
-        //public async Task<IActionResult> Create(Comment comment)
-        //{
-        //    comment.PostDate = DateTime.Now;
-        //    comment.UserId = (this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
-
-        //    _context.Comments.Add(comment);
-        //    await _context.SaveChangesAsync();
-        //    return RedirectToAction("Details", "BlogPost", new { id = comment.BlogPostId });
-
-        //}
     }
 }

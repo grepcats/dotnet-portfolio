@@ -22,12 +22,12 @@
 
     @Html.LabelFor(user => user.UserRoleId)
 
-    @*<select name="role" id="role">
+    <select name="role" id="role">
         @foreach (var role in ViewBag.Roles)
         {
             <option value="@role.Id">@role.Name</option>
         }
-    </select>*@
+    </select>
 
     <input type="submit" value="Register" />
 }

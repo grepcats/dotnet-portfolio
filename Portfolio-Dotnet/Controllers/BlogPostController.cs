@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Portfolio.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace Portfolio.Controllers
 {
@@ -36,29 +37,15 @@ namespace Portfolio.Controllers
 
         [Authorize(Roles = "Admin")]
         [HttpPost]
-        public IActionResult Create(BlogPost blogPost)
+        public async Task<IActionResult> Create(BlogPost blogPost)
         {
             blogPost.PostDate = DateTime.Now;
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            blogPost.User = await _userManager.FindByIdAsync(userId);
             _db.BlogPosts.Add(blogPost);
-            _db.SaveChanges();
+            await _db.SaveChangesAsync();
             return RedirectToAction("Index");
         }
-
-        //public IActionResult ListPosts()
-        //{
-        //    var model = _db.BlogPosts.ToList();
-        //    return Json(model);
-        //}
-
-        //public IActionResult DisplayComments()
-        //{
-        //    return View();
-        //}
-
-        //public IActionResult CommentForm()
-        //{
-        //    return View();
-        //}
 
         public IActionResult Details(int id)
         {

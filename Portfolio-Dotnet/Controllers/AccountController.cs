@@ -40,7 +40,7 @@ namespace Portfolio.Controllers
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
             var user = new ApplicationUser { UserName = model.Email };
-            user.Roles.Add(new IdentityUserRole<string> { RoleId = "2" });
+            user.Roles.Add(new IdentityUserRole<string> { RoleId = Request.Form["role"] });
             IdentityResult result = await _userManager.CreateAsync(user, model.Password);
             _db.SaveChanges();
             if (result.Succeeded)
