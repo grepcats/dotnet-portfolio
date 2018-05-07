@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Porfolio_Dotnet": {
+    "Portfolio_Dotnet": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
