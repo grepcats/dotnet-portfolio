@@ -55,8 +55,8 @@ namespace Portfolio.Controllers
             Comment comment = new Comment();
             comment.BlogPost = thisBlogPost;
             comment.BlogPostId = id;
-            //thisBlogPost.Comments = thisBlogPost.Comments.Where(Comments => Comments.BlogPostId == id).ToList();
-            ViewBag.Comments = _db.Comments.Where(a => a.BlogPostId == id);
+            thisBlogPost.Comments = _db.Comments.Where(Comments => Comments.BlogPostId == id).Include(u => u.User).ToList();
+            ViewBag.Comments = _db.Comments.Where(a => a.BlogPostId == id).ToList();
             return View(comment);
             
 
