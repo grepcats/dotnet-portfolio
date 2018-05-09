@@ -1,10 +1,11 @@
-## SPEX
+## Specs
 
 * Program should allow users to log on/off
  * Input: Identity authentication
  * Output: User is returned to the Index/Blog page to browse
 * Program should include a landing page with a picture of me
-*
+  * Input: Home page and img of me
+  * Output: When user lands on Home page, they see a picture of me or that represents me
 * Program should allow admin to post blog posts
   * Input: Blog post properties (Author, BodyText, Date)
   * Output: Blog post is created
