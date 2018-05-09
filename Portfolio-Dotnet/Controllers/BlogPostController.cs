@@ -49,19 +49,20 @@ namespace Portfolio.Controllers
 
         public IActionResult Details(int id)
         {
-            //var thisBlogPost = _db.BlogPosts.FirstOrDefault(BlogPosts => BlogPosts.BlogPostId == id);
-
             var thisBlogPost = _db.BlogPosts.Include(blogPosts => blogPosts.User).SingleOrDefault(q => q.BlogPostId == id);
-            Comment comment = new Comment();
-            comment.BlogPost = thisBlogPost;
-            comment.BlogPostId = id;
-            thisBlogPost.Comments = _db.Comments.Where(Comments => Comments.BlogPostId == id).Include(u => u.User).ToList();
+            Comment comment = new Comment
+            {
+                BlogPost = thisBlogPost,
+                BlogPostId = id
+            };
+            thisBlogPost.Comments = _db.Comments
+                .Where(Comments => Comments.BlogPostId == id)
+                .OrderByDescending(x => x.PostDate)
+                .Include(u => u.User)
+                .ToList();
             ViewBag.Comments = _db.Comments.Where(a => a.BlogPostId == id).ToList();
+
             return View(comment);
-            
-
-
-            //return View(thisBlogPost);
         }
 
 
@@ -95,7 +96,7 @@ namespace Portfolio.Controllers
 
         public IActionResult ListPosts()
         {
-            List<BlogPost> model = _db.BlogPosts.ToList();
+            List<BlogPost> model = _db.BlogPosts.OrderByDescending(x => x.PostDate).ToList();
             return View(model);
         }
         
