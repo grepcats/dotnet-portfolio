@@ -23,12 +23,14 @@
 
 @if (User.IsInRole("Admin"))
 {
-   <div class="update-post" name="@Model.BlogPost.BlogPostId">Hello, update your post</div>
+    <div class="update-post" name="@Model.BlogPost.BlogPostId">Update your post</div>
+    <div class="delete-post" name="@Model.BlogPost.BlogPostId">Delete your post</div>
 }
 <div id="update-form"></div>
+<div id="delete-form"></div>
 
-    @foreach (Comment thisComment in ViewBag.Comments)
-    {
-        <p>@thisComment.TextBody <span class="time">Posted by @thisComment.User.UserName at @thisComment.PostDate</span></p>
+@foreach (Comment thisComment in ViewBag.Comments)
+{
+    <p>@thisComment.TextBody <span class="time">Posted by @thisComment.User.UserName at @thisComment.PostDate</span></p>
 
-    }
+}

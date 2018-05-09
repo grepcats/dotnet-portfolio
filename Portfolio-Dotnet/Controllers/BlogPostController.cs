@@ -79,6 +79,21 @@ namespace Portfolio.Controllers
             return RedirectToAction("Details", "BlogPost", new { id = blogPost.BlogPostId });
         }
 
+        public IActionResult Delete(int id)
+        {
+            var blogPost = _db.BlogPosts.FirstOrDefault(BlogPosts => BlogPosts.BlogPostId == id);
+            return View(blogPost);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeleteConfirmed(BlogPost blogPost)
+        {
+            //var blogPost = _db.BlogPosts.FirstOrDefault(BlogPosts => BlogPosts.BlogPostId == id);
+            _db.Remove(blogPost);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
         public IActionResult ListPosts()
         {
             List<BlogPost> model = _db.BlogPosts.ToList();

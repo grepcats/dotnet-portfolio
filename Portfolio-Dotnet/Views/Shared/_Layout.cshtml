@@ -40,6 +40,24 @@
                         $('#update-form').html(result);
                     }
                 });
+
+            });
+            $('.delete-post').click(function (event) {
+                event.preventDefault();
+
+
+                let selectedId = $(this).attr("name");
+                console.log(selectedId);
+
+                $.ajax({
+                    type: 'GET',
+                    datatype: 'html',
+                    data: { id: selectedId },
+                    url: '@Url.Action("Delete", "BlogPost")',
+                    success: function (result) {
+                        $('#delete-form').html(result);
+                    }
+                });
             });
             @*$('.a-post').click(function () {
                 var selectedId = $((this).attr('id'));

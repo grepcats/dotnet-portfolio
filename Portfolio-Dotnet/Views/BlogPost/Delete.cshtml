@@ -1,0 +1,9 @@
+﻿@model Portfolio.Models.BlogPost
+
+<h2>Are you sure you want to delete this post?</h2>
+
+@using (Html.BeginForm("Delete", "BlogPost"))
+{
+    @Html.HiddenFor(model => model.BlogPostId)
+    <button class="btn danger-button btn-lg" type="submit" value="Delete">Confirm Delete</button>
+}
