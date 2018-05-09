@@ -88,7 +88,6 @@ namespace Portfolio.Controllers
         [HttpPost, ActionName("Delete")]
         public IActionResult DeleteConfirmed(BlogPost blogPost)
         {
-            //var blogPost = _db.BlogPosts.FirstOrDefault(BlogPosts => BlogPosts.BlogPostId == id);
             _db.Remove(blogPost);
             _db.SaveChanges();
             return RedirectToAction("Index");

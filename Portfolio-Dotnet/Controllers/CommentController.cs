@@ -34,19 +34,15 @@ namespace Portfolio.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(Comment comment)
         {
-            //TODO- add user to comment.User
-            
             comment.PostDate = DateTime.Now;
             comment.UserId = (this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
             var users = _db.Users;
             var user = _db.Users.FirstOrDefault(q => q.Id == comment.UserId);
-            //var user = _db.Comments.Select(comments => comments.User).SingleOrDefault(q => q.Id == comment.UserId);
             comment.User = user;
 
             _db.Comments.Add(comment);
             await _db.SaveChangesAsync();
             return RedirectToAction("Details", "BlogPost", new { id = comment.BlogPostId });
-            //return RedirectToAction("Index", "Home");
         }
 
     }

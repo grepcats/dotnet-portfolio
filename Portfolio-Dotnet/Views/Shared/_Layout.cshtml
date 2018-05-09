@@ -59,32 +59,6 @@
                     }
                 });
             });
-            @*$('.a-post').click(function () {
-                var selectedId = $((this).attr('id'));
-                console.log(selectedId);
-                $.ajax({
-                    type: 'GET',
-                    dataType: 'html',
-                    data: { 'id': selectedId},
-                    url: '@Url.Action("Details")',
-                    success: function (result) {
-                        $('#detail' + selectedId).html(result);
-                    }
-                });
-            });*@
-            @*$('.display-comments').click(function () {
-                var selectedId = $('#id');
-                console.log(selectedId);
-                $.ajax({
-                    type: 'GET',
-                    dataType: 'html',
-                    data: { 'id': selectedId},
-                    url: '@Url.Action("Details")',
-                    success: function (result) {
-                        $('#comments').html(result);
-                    }
-                });
-            });*@
         });
         </script>
     </environment>
