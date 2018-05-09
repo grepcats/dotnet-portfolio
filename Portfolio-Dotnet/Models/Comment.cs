@@ -14,6 +14,7 @@ namespace Portfolio.Models
         public int CommentId { get; set; }
         public string Author { get; set; }
         public string UserId { get; set; }
+        [Display(Name = "Comment Body")]
         public string TextBody { get; set; }
         public DateTime PostDate { get; set; }
         public int BlogPostId { get; set; }

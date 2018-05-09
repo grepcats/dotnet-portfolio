@@ -14,6 +14,7 @@ namespace Portfolio.Models
         public int BlogPostId { get; set; }
         public string Title { get; set; }
         public string Author { get; set; }
+        [Display(Name = "Body")]
         public string TextBody { get; set; }
         public DateTime PostDate { get; set; }
         public virtual List<Comment> Comments { get; set; }

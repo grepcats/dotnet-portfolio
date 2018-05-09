@@ -45,8 +45,32 @@ textarea {
     flex-direction: row;
 }
 
-span {
-    display:inline;
+.comment-item {
+    padding: 5px;
+}
+
+.clickable {
+    font-size: 1.5em;
+    margin-left: 20px;
+}
+
+.clickable:hover {
+    cursor: pointer;
+    color: green;
+}
+
+.comments {
+    margin-top: 30px;
+}
+
+.blog-posts {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.blog-posts:hover {
+    cursor: pointer;
+    color: green;
 }
 
 /* Hide/rearrange for smaller screens */
