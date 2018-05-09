@@ -34,6 +34,12 @@ textarea {
     border-radius: 200px;
 }
 
+.time {
+    font-style: italic;
+    color: grey;
+    font-size: .75em;
+}
+
 
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
