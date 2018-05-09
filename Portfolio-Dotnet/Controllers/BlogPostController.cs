@@ -71,6 +71,14 @@ namespace Portfolio.Controllers
             return View(thisPost);
         }
 
+        [HttpPost]
+        public IActionResult Update(BlogPost blogPost)
+        {
+            _db.Entry(blogPost).State = EntityState.Modified;
+            _db.SaveChanges();
+            return RedirectToAction("Details", "BlogPost", new { id = blogPost.BlogPostId });
+        }
+
         public IActionResult ListPosts()
         {
             List<BlogPost> model = _db.BlogPosts.ToList();
