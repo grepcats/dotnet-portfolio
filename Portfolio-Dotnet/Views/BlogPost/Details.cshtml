@@ -31,6 +31,21 @@
 
 @foreach (Comment thisComment in ViewBag.Comments)
 {
-    <p>@thisComment.TextBody <span class="time">Posted by @thisComment.User.UserName at @thisComment.PostDate</span></p>
+    <div class="comment">
+        @thisComment.TextBody <span class="time">Posted by @thisComment.User.UserName at @thisComment.PostDate</span>
+        <span>
+            @if (User.IsInRole("Admin"))
+            {
+                @using (Html.BeginForm("Delete", "Comment"))
+                {
+                    @Html.Hidden("CommentId", thisComment.CommentId)
+                    @Html.Hidden("BlogPostId", thisComment.BlogPostId)
+                    <button class="btn danger-button btn-xs delete-button" type="submit" value="Delete">Delete</button>
+                }
+
+            }
+        </span>
+    </div>
+
 
 }

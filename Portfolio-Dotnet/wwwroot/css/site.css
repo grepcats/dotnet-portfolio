@@ -40,6 +40,14 @@ textarea {
     font-size: .75em;
 }
 
+.comment {
+    display:flex;
+    flex-direction: row;
+}
+
+span {
+    display:inline;
+}
 
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {

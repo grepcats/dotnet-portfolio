@@ -45,5 +45,13 @@ namespace Portfolio.Controllers
             return RedirectToAction("Details", "BlogPost", new { id = comment.BlogPostId });
         }
 
+        [HttpPost]
+        public IActionResult Delete(Comment comment)
+        {
+            _db.Remove(comment);
+            _db.SaveChanges();
+            return RedirectToAction("Details", "BlogPost", new { id = comment.BlogPostId });
+        }
+
     }
 }
