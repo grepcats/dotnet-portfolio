@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Kayla</title>
+    @*<title>@ViewData["Title"] - Kayla</title>*@
 
     <environment names="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -21,6 +21,23 @@
                     url: '@Url.Action("ListPosts", "BlogPost")',
                     success: function (result) {
                         $('#posts').html(result);
+                    }
+                });
+            });
+            $('.update-post').click(function (event) {
+                event.preventDefault();
+                
+               
+                let selectedId = $(this).attr("name");
+                console.log(selectedId);
+                
+                $.ajax({
+                    type: 'GET',
+                    datatype: 'html',
+                    data: { id: selectedId },
+                    url: '@Url.Action("Update", "BlogPost")',
+                    success: function (result) {
+                        $('#update-form').html(result);
                     }
                 });
             });
@@ -103,10 +120,7 @@
     </nav>
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2018 - Kayla Ondracek</p>
-        </footer>
+       
     </div>
 
 </body>

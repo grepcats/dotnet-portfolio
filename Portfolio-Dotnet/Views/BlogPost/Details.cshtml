@@ -21,8 +21,14 @@
     <input type="submit" class="btn btn-default" />
 }
 
-@foreach (Comment thisComment in ViewBag.Comments)
+@if (User.IsInRole("Admin"))
 {
-    <p>@thisComment.TextBody <span class="time">Posted by @thisComment.User.UserName at @thisComment.PostDate</span></p>
-
+   <div class="update-post" name="@Model.BlogPost.BlogPostId">Hello, update your post</div>
 }
+<div id="update-form"></div>
+
+    @foreach (Comment thisComment in ViewBag.Comments)
+    {
+        <p>@thisComment.TextBody <span class="time">Posted by @thisComment.User.UserName at @thisComment.PostDate</span></p>
+
+    }

@@ -64,6 +64,13 @@ namespace Portfolio.Controllers
             //return View(thisBlogPost);
         }
 
+
+        public IActionResult Update(int id)
+        {
+            var thisPost = _db.BlogPosts.FirstOrDefault(BlogPosts => BlogPosts.BlogPostId == id);
+            return View(thisPost);
+        }
+
         public IActionResult ListPosts()
         {
             List<BlogPost> model = _db.BlogPosts.ToList();
