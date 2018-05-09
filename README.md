@@ -9,6 +9,8 @@ This portfolio includes blog posts. Only admin may post blog posts. Admin may al
 
 Users may post comments on existing blog posts but may not post new blogs and may not delete/update blogs.
 
+In order to facilitate review, this program allows the user to select whether they register as an admin or a guest.
+
 ## Specs
 
 * Program should allow users to log on/off
@@ -60,12 +62,24 @@ Users may post comments on existing blog posts but may not post new blogs and ma
   ```
   $ dotnet ef database update
   ```
-*  Restore dependencies and run the program
-  ```
-  $ dotnet restore
-  $ dotnet run
-  ```
-  
+### Create the Admin and Guest roles:
+* Log into MySQL:
+```
+$ C:\MAMP\bin\mysql\bin\mysql -uroot -proot -P8889
+```
+* From your command line once you've logged into MySQL, run the following:
+```
+INSERT INTO `aspnetroles` (`Id`, `ConcurrencyStamp`, `Name`, `NormalizedName`) VALUES
+('1', NULL, 'Admin', 'ADMIN'),
+('2', NULL, 'Guest', 'GUEST');
+```
+### Restore dependencies and run the program
+```
+$ cd ..
+$ dotnet restore
+$ dotnet run
+```
+
 ### License
 
 *MIT License*
