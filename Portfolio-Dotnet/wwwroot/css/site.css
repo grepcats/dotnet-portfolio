@@ -9,6 +9,7 @@
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    margin-left: 60px;
 }
 
 /* Set widths on the form inputs since otherwise they're 100% wide */
@@ -77,6 +78,8 @@ textarea {
 .li {
     width: 100%;
 }
+
+
 
 .nav-bar {
     background: #181818;
@@ -150,6 +153,11 @@ li.home {
 
 .navbar-brand {
     padding: 10px;
+    color: #C9E4CA;
+}
+
+.navbar-brand:hover {
+    color: #C9E4CA;
 }
 
 .container {
@@ -159,6 +167,10 @@ li.home {
 
 .nav li {
     width: 60px;
+}
+
+.contact-icons {
+    text-align: center;
 }
 
 /* Hide/rearrange for smaller screens */
