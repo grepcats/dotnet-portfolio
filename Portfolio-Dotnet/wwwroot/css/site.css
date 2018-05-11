@@ -18,8 +18,8 @@ textarea {
     max-width: 280px;
 }
 
-.white-text {
-    color: white;
+.username {
+    color: #55828B;
     padding: 15px;
 }
 
@@ -93,7 +93,6 @@ textarea {
     text-align: center;
     position: absolute;
     height: 210px;
-    /*top: 50%;*/
     margin-top: 20px;
     width: 100%;
 }
@@ -112,13 +111,23 @@ textarea {
     background-color: #364958;
 }
 
+.nav li a {
+    text-decoration: none;
+    display: block;
+    padding: 15px;
+}
+
 .nav a {
     color: #55828B;
 }
 
+.nav li i {
+    padding: 0 10px;
+}
+
 .nav li b {
     display: none;
-    padding: 15px 0;
+    font-size: .75em;
 }
 
 .nav a:hover i {
@@ -127,7 +136,16 @@ textarea {
 
 .nav a:hover b {
     display: block;
-    color: black;
+    color: #55828B;
+    background-color: #364958;
+}
+
+.nav > li > a:hover {
+    background-color: #364958;
+}
+
+li.home {
+    background-color: #364958;
 }
 
 .navbar-brand {

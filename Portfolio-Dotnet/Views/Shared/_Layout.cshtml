@@ -75,12 +75,12 @@
         <nav class="upper-section">
             <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">kayla</a>
             <ul class="nav navbar-nav">
-                <li class="home"><a asp-area="" asp-controller="Home" asp-action="Index"><i class="glyphicon glyphicon-home"><b>Home</b></i></a></li>
-                <li><a asp-area="" asp-controller="Home" asp-action="Index"><span class="glyphicon glyphicon-home"></span></a></li>
-                <li><a asp-area="" asp-controller="Home" asp-action="Projects"><span class="glyphicon glyphicon-wrench"></span></a></li>
-                <li><a asp-area="" asp-controller="Home" asp-action="Resume"><span class="glyphicon glyphicon-list-alt"></span></a></li>
-                <li><a asp-area="" asp-controller="Home" asp-action="Contact"><span class="glyphicon glyphicon-earphone"></span></a></li>
-                <li><a asp-area="" asp-controller="BlogPost" asp-action="Index"><span class="glyphicon glyphicon-pencil"></span></a></li>
+           
+                <li class="home"><a asp-area="" asp-controller="Home" asp-action="Index"><i class="glyphicon glyphicon-home"></i><b>home</b></a></li>
+                <li><a asp-area="" asp-controller="Home" asp-action="Projects"><i class="glyphicon glyphicon-wrench"></i><b>work</b></a></li>
+                <li><a asp-area="" asp-controller="Home" asp-action="Resume"><i class="glyphicon glyphicon-list-alt"></i><b>resume</b></a></li>
+                <li><a asp-area="" asp-controller="Home" asp-action="Contact"><i class="glyphicon glyphicon-earphone"></i><b>contact</b></a></li>
+                <li><a asp-area="" asp-controller="BlogPost" asp-action="Index"><i class="glyphicon glyphicon-pencil"></i><b>blog</b></a></li>
             </ul>
 
         </nav>
@@ -88,16 +88,16 @@
             <ul class="navbar-nav nav">
                 @if (!User.Identity.IsAuthenticated)
                 {
-                    <li><a asp-area="" asp-controller="Account" asp-action="Register"><span class="glyphicon glyphicon-check"></span></a></li>
-                    <li><a asp-area="" asp-controller="Account" asp-action="Login"><span class="glyphicon glyphicon-log-in"></span></a></li>
+                    <li><a asp-area="" asp-controller="Account" asp-action="Register"><i class="glyphicon glyphicon-check"></i><b>signup</b></a></li>
+                    <li><a asp-area="" asp-controller="Account" asp-action="Login"><i class="glyphicon glyphicon-log-in"></i><b>signin</b></a></li>
                 }
                 else
                 {
-                    <li class="white-text">@User.Identity.Name</li>
+                    <li class="username">@User.Identity.Name</li>
                     <li>
                         @using (Html.BeginForm("LogOff", "Account"))
                         {
-                            <input type="submit" class="btn btn-default btn-xs logout-button" value="Off" />
+                            <input type="submit" class="btn btn-default btn-xs logout-button" value="signoff" />
                         }
                     </li>
 
