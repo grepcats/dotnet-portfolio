@@ -103,8 +103,28 @@ textarea {
     width: 100%;
 }
 
+
+
+.nav li b {
+    display: none;
+    padding: 15px 0;
+}
+
+.nav a:hover i {
+    display: none;
+}
+
+.nav a:hover b {
+    display: block;
+    color: black;
+}
+
 .navbar-brand {
     padding: 10px;
+}
+
+.container {
+    margin-left: 60px;
 }
 
 
