@@ -35,6 +35,12 @@ namespace Portfolio.Controllers
             return View(allRepos);
         }
 
+        public IActionResult Resume()
+        {
+            ViewData["Message"] = "Your resume page.";
+            return View();
+        }
+
         public IActionResult Error()
         {
             return View();

@@ -5,20 +5,23 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <h2>@ViewData["Title"]</h2>
+<div class="portfolio-favorites">
+    <div class="favorite">
+
+     </div>
+</div>
 
 <div>
     <h2>Top 3 starred GitHub projects</h2>
     @foreach (var repo in Model)
     {
-    <div class="repo">
-        <div class="panel">
+    <div class="repo well">
             <ul class="list-unstyled">
                 <li>Description: @Html.DisplayFor(modelItem => repo.Description)</li>
-                <li>URL: @Html.DisplayFor(modelItem => repo.Html_Url)</li>
+                <li>URL: <a href="@Html.DisplayFor(modelItem => repo.Html_Url)">Link</a></li>
                 <li>Language: @Html.DisplayFor(modelItem => repo.Language)</li>
                 <li>Number of Stars: @Html.DisplayFor(modelItem => repo.Stargazers_Count)</li>
             </ul>
-        </div>
        
     </div>
     }
