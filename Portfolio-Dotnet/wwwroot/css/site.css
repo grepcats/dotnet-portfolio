@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-color: #C9E4CA;
 }
 
 /* Wrapping element */
@@ -73,6 +74,10 @@ textarea {
     color: green;
 }
 
+.li {
+    width: 100%;
+}
+
 .nav-bar {
     background: #181818;
     width: 60px;
@@ -103,7 +108,13 @@ textarea {
     width: 100%;
 }
 
+.nav-bar {
+    background-color: #364958;
+}
 
+.nav a {
+    color: #55828B;
+}
 
 .nav li b {
     display: none;
@@ -128,7 +139,7 @@ textarea {
 }
 
 
-li {
+.nav li {
     width: 60px;
 }
 
