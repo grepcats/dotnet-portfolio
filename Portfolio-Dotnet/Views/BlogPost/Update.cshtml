@@ -1,5 +1,5 @@
 ﻿@model Portfolio.Models.BlogPost
-
+<h3>Update your post</h3>
 @using (Html.BeginForm("Update", "BlogPost"))
 {
     @Html.HiddenFor(model => model.BlogPostId)
@@ -13,7 +13,7 @@
         @Html.LabelFor(model => model.TextBody)
         @Html.TextAreaFor(x => x.TextBody, new { @class = "form-control" })
     </div>
-    
+
 
     <input type="submit" value="Update" class="btn btn-default" />
 

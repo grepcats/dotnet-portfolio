@@ -1,19 +1,14 @@
 ﻿@model IEnumerable<Portfolio.Models.BlogPost>
 
-@{
-    ViewData["Title"] = "Blog Posts";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
 <h2>Posts</h2>
 <hr />
 
 
 @foreach (var post in Model)
 {
-<div class="blog-post">
-    <h3 class="post-title">@Html.DisplayFor(modelPost => post.Title)</h3>
-    <h4>By @Html.DisplayFor(modelPost => post.Author), posted on @post.PostDate</h4>
-    @Html.ActionLink("Details", "Details", "BlogPost", new { id = post.BlogPostId })
-</div>
+    <div class="blog-post">
+        <h3 class="post-title">@Html.DisplayFor(modelPost => post.Title)</h3>
+        <h4>By @Html.DisplayFor(modelPost => post.Author), posted on @post.PostDate</h4>
+        @Html.ActionLink("Details", "Details", "BlogPost", new { id = post.BlogPostId })
+    </div>
 }

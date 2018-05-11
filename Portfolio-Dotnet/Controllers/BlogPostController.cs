@@ -69,7 +69,7 @@ namespace Portfolio.Controllers
         public IActionResult Update(int id)
         {
             var thisPost = _db.BlogPosts.FirstOrDefault(BlogPosts => BlogPosts.BlogPostId == id);
-            return View(thisPost);
+            return PartialView(thisPost);
         }
 
         [HttpPost]
@@ -83,7 +83,7 @@ namespace Portfolio.Controllers
         public IActionResult Delete(int id)
         {
             var blogPost = _db.BlogPosts.FirstOrDefault(BlogPosts => BlogPosts.BlogPostId == id);
-            return View(blogPost);
+            return PartialView(blogPost);
         }
 
         [HttpPost, ActionName("Delete")]
@@ -97,7 +97,7 @@ namespace Portfolio.Controllers
         public IActionResult ListPosts()
         {
             List<BlogPost> model = _db.BlogPosts.OrderByDescending(x => x.PostDate).ToList();
-            return View(model);
+            return PartialView(model);
         }
         
     }
