@@ -6,7 +6,6 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    @*<title>@ViewData["Title"] - Kayla</title>*@
 
     <environment names="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -26,11 +25,11 @@
             });
             $('.update-post').click(function (event) {
                 event.preventDefault();
-                
-               
+
+
                 let selectedId = $(this).attr("name");
                 console.log(selectedId);
-                
+
                 $.ajax({
                     type: 'GET',
                     datatype: 'html',
@@ -72,51 +71,47 @@
 </head>
 <body>
     @*<nav class="navbar navbar-inverse navbar-fixed-top">*@
-        <nav class="nav-bar">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Kayla Ondracek</a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                        <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                        <li><a asp-area="" asp-controller="Home" asp-action="Projects">Projects</a></li>
-                        <li><a asp-area="" asp-controller="Home" asp-action="Resume">Resume</a></li>
-                        <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                        <li><a asp-area="" asp-controller="BlogPost" asp-action="Index">Blog</a></li>
-                    </ul>
-                    <ul class="navbar-nav nav navbar-right">
-                        @if (!User.Identity.IsAuthenticated)
-                    {
-                        <li><a asp-area="" asp-controller="Account" asp-action="Register">Register</a></li>
-                        <li><a asp-area="" asp-controller="Account" asp-action="Login">Login</a></li>
+    <nav class="nav-bar">
+        <nav class="upper-section">
+            <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">kayla</a>
+            <ul class="nav navbar-nav">
+
+                <li><a asp-area="" asp-controller="Home" asp-action="Index"><span class="glyphicon glyphicon-home"></span></a></li>
+                <li><a asp-area="" asp-controller="Home" asp-action="Projects"><span class="glyphicon glyphicon-wrench"></span></a></li>
+                <li><a asp-area="" asp-controller="Home" asp-action="Resume"><span class="glyphicon glyphicon-list-alt"></span></a></li>
+                <li><a asp-area="" asp-controller="Home" asp-action="Contact"><span class="glyphicon glyphicon-earphone"></span></a></li>
+                <li><a asp-area="" asp-controller="BlogPost" asp-action="Index"><span class="glyphicon glyphicon-pencil"></span></a></li>
+            </ul>
+
+        </nav>
+        <nav class="lower-section">
+            <ul class="navbar-nav nav">
+                @if (!User.Identity.IsAuthenticated)
+                {
+                    <li><a asp-area="" asp-controller="Account" asp-action="Register">Register</a></li>
+                    <li><a asp-area="" asp-controller="Account" asp-action="Login">Login</a></li>
                 }
                 else
                 {
                     <li class="white-text">Welcome, @User.Identity.Name</li>
                     <li>
                         @using (Html.BeginForm("LogOff", "Account"))
-                    {
-                        <input type="submit" class="btn btn-default btn-xs logout-button" value="Log Off" />
-                }
+                        {
+                            <input type="submit" class="btn btn-default btn-xs logout-button" value="Log Off" />
+                        }
                     </li>
 
-            }
-                    </ul>
-                </div>
-            </div>
+                }
+            </ul>
         </nav>
-        <div class="container body-content">
-            @RenderBody()
 
-        </div>
+
+
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+
+    </div>
 
 </body>
 </html>
