@@ -17,9 +17,14 @@ namespace Portfolio.Models
 
         public static List<Repo> GetRepos()
         {
-            var client = new RestClient("https://api.github.com/search/repositories");
-            var request = new RestRequest("?q=user:grepcats&sort=stars&order=desc");
+            var client = new RestClient("https://api.github.com");
+            var request = new RestRequest("search/repositories?q=user:grepcats&sort=stars&order=desc&per_page=3");
+            //var request = new RestRequest("search/repositories?q=user:grepcats");
+            //request.AddParameter(+
+            //    "&user=grepcats&sort=stars&order=desc", Method.GET);
             var response = new RestResponse();
+           // client.UserAgent = "grepcats_app";
+            request.AddHeader("User-Agent", "grepcats");
 
             Task.Run(async () =>
             {

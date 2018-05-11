@@ -1,8 +1,22 @@
-﻿@{
+﻿@model IEnumerable<Portfolio.Models.Repo>
+
+@{
     ViewData["Title"] = "Portfolio";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <h2>@ViewData["Title"]</h2>
 
 <div>
     <p>Output for top 3 starred projects</p>
+    @foreach (var repo in Model)
+    {
+    <div>
+        <ul>
+            <li>To: @Html.DisplayFor(modelItem => repo.Description)</li>
+            <li>From: @Html.DisplayFor(modelItem => repo.Link)</li>
+            <li>Body: @Html.DisplayFor(modelItem => repo.Language)</li>
+            <li>Status: @Html.DisplayFor(modelItem => repo.Stargazers)</li>
+        </ul>
+    </div>
+    }
 </div>

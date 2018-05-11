@@ -11,7 +11,8 @@ namespace Portfolio.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            var allRepos = Repo.GetRepos();
+            return View(allRepos);
         }
 
         public IActionResult About()
@@ -40,10 +41,6 @@ namespace Portfolio.Controllers
             return View();
         }
 
-        public IActionResult GetRepos()
-        {
-            var allRepos = Repo.GetRepos();
-            return View(allRepos);
-        }
+       
     }
 }
