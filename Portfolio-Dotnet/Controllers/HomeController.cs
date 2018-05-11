@@ -28,7 +28,7 @@ namespace Portfolio.Controllers
             return View();
         }
 
-        public IActionResult Portfolio()
+        public IActionResult Projects()
         {
             ViewData["Message"] = "Your porfolio page.";
             var allRepos = Repo.GetRepos();

@@ -71,51 +71,52 @@
     @Html.Raw(JavaScriptSnippet.FullScript)
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Kayla Ondracek</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Portfolio">Portfolio</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Resume">Resume</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                    <li><a asp-area="" asp-controller="BlogPost" asp-action="Index">Blog</a></li>
-                </ul>
-                <ul class="navbar-nav nav navbar-right">
-                    @if (!User.Identity.IsAuthenticated)
+    @*<nav class="navbar navbar-inverse navbar-fixed-top">*@
+        <nav class="nav-bar">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Kayla Ondracek</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="Projects">Projects</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="Resume">Resume</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                        <li><a asp-area="" asp-controller="BlogPost" asp-action="Index">Blog</a></li>
+                    </ul>
+                    <ul class="navbar-nav nav navbar-right">
+                        @if (!User.Identity.IsAuthenticated)
                     {
                         <li><a asp-area="" asp-controller="Account" asp-action="Register">Register</a></li>
                         <li><a asp-area="" asp-controller="Account" asp-action="Login">Login</a></li>
-                    }
-                    else
+                }
+                else
+                {
+                    <li class="white-text">Welcome, @User.Identity.Name</li>
+                    <li>
+                        @using (Html.BeginForm("LogOff", "Account"))
                     {
-                        <li class="white-text">Welcome, @User.Identity.Name</li>
-                        <li>
-                            @using (Html.BeginForm("LogOff", "Account"))
-                            {
-                                <input type="submit" class="btn btn-default btn-xs logout-button" value="Log Off" />
-                            }
-                        </li>
+                        <input type="submit" class="btn btn-default btn-xs logout-button" value="Log Off" />
+                }
+                    </li>
 
-                    }
-                </ul>
+            }
+                    </ul>
+                </div>
             </div>
+        </nav>
+        <div class="container body-content">
+            @RenderBody()
+
         </div>
-    </nav>
-    <div class="container body-content">
-        @RenderBody()
-       
-    </div>
 
 </body>
 </html>
