@@ -7,16 +7,19 @@
 <h2>@ViewData["Title"]</h2>
 
 <div>
-    <p>Output for top 3 starred projects</p>
+    <h2>Top 3 starred GitHub projects</h2>
     @foreach (var repo in Model)
     {
-    <div>
-        <ul>
-            <li>Description: @Html.DisplayFor(modelItem => repo.Description)</li>
-            <li>URL: @Html.DisplayFor(modelItem => repo.Html_Url)</li>
-            <li>Language: @Html.DisplayFor(modelItem => repo.Language)</li>
-            <li>Number of Stars: @Html.DisplayFor(modelItem => repo.Stargazers_Count)</li>
-        </ul>
+    <div class="repo">
+        <div class="panel">
+            <ul class="list-unstyled">
+                <li>Description: @Html.DisplayFor(modelItem => repo.Description)</li>
+                <li>URL: @Html.DisplayFor(modelItem => repo.Html_Url)</li>
+                <li>Language: @Html.DisplayFor(modelItem => repo.Language)</li>
+                <li>Number of Stars: @Html.DisplayFor(modelItem => repo.Stargazers_Count)</li>
+            </ul>
+        </div>
+       
     </div>
     }
 </div>
