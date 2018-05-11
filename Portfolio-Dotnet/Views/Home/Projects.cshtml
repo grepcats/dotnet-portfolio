@@ -18,7 +18,7 @@
     <div class="repo well">
             <ul class="list-unstyled">
                 <li>Description: @Html.DisplayFor(modelItem => repo.Description)</li>
-                <li>URL: <a href="@Html.DisplayFor(modelItem => repo.Html_Url)">Link</a></li>
+                <li>URL: <a href="@Html.DisplayFor(modelItem => repo.Html_Url)">@Html.DisplayFor(modelItem => repo.Html_Url)</a></li>
                 <li>Language: @Html.DisplayFor(modelItem => repo.Language)</li>
                 <li>Number of Stars: @Html.DisplayFor(modelItem => repo.Stargazers_Count)</li>
             </ul>

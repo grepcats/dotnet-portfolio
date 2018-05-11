@@ -2,15 +2,18 @@
     padding-top: 50px;
     padding-bottom: 20px;
     background-color: #C9E4CA;
+    color: #364958;
 }
 
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+.cool-container {
+    padding-left: 10%;
+    padding-right: 10%;
     margin-left: 60px;
 }
+
+
 
 /* Set widths on the form inputs since otherwise they're 100% wide */
 input,
@@ -29,11 +32,16 @@ textarea {
 }
 
 .profile-pic {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 25%;
+    width: 40%;
     border-radius: 200px;
+    margin-right: 20px;
+    float: left;
+    opacity: 0.75;
+}
+
+.well {
+    background-color: #87BBA2;
+    border-color: #87BBA2;
 }
 
 .time {
@@ -56,10 +64,10 @@ textarea {
     margin-left: 20px;
 }
 
-.clickable:hover {
-    cursor: pointer;
-    color: green;
-}
+    .clickable:hover {
+        cursor: pointer;
+        color: #55828B;
+    }
 
 .comments {
     margin-top: 30px;
@@ -70,10 +78,10 @@ textarea {
     font-weight: bold;
 }
 
-.blog-posts:hover {
-    cursor: pointer;
-    color: green;
-}
+    .blog-posts:hover {
+        cursor: pointer;
+        color: #55828B;
+    }
 
 .li {
     width: 100%;
@@ -160,10 +168,6 @@ li.home {
     color: #C9E4CA;
 }
 
-.container {
-    margin-left: 60px;
-}
-
 
 .nav li {
     width: 60px;
@@ -173,10 +177,20 @@ li.home {
     text-align: center;
 }
 
-/* Hide/rearrange for smaller screens */
-@media screen and (max-width: 767px) {
-    /* Hide captions */
-    .carousel-caption {
-        display: none;
+.fab,
+.fas {
+    color: #55828B;
+}
+
+    .fab:hover,
+    .fas:hover {
+        color: #87BBA2;
     }
+
+@media (max-width: 768px) {
+    .upper-section,
+    .lower-section {
+        margin-left: 15px;
+    }
+
 }
