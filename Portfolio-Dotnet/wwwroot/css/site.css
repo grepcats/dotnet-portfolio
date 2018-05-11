@@ -33,6 +33,7 @@ textarea {
 
 .profile-pic {
     width: 40%;
+    min-width: 200px;
     border-radius: 200px;
     margin-right: 20px;
     float: left;
