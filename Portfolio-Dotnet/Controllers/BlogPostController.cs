@@ -60,7 +60,7 @@ namespace Portfolio.Controllers
                 .OrderByDescending(x => x.PostDate)
                 .Include(u => u.User)
                 .ToList();
-            ViewBag.Comments = _db.Comments.Where(a => a.BlogPostId == id).ToList();
+            ViewBag.Comments = _db.Comments.Where(a => a.BlogPostId == id).Include(u => u.User).ToList();
 
             return View(comment);
         }
